@@ -73,9 +73,22 @@ const quotes = [{
         year: '2015'
     },
 ];
+
+const quoteBtn = document.querySelector('#load-quote');
+const quote = document.querySelector('.quote');
+const source = document.querySelector('.source');
+const citation = document.querySelector('.citation');
+const year = document.querySelector('.year');
 /**** `getRandomQuote` function
  ***/
 
+
+function getRandomQuote() {
+    let random = Math.floor(Math.random() * quotes.length);
+    const randomQuote = quotes[random];
+    // console.log(randomQuote);
+}
+getRandomQuote();
 /***
  * `printQuote` function
  ***/
