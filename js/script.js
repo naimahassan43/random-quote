@@ -75,24 +75,55 @@ const quotes = [{
 ];
 
 const quoteBtn = document.querySelector('#load-quote');
-const quote = document.querySelector('.quote');
-const source = document.querySelector('.source');
-const citation = document.querySelector('.citation');
-const year = document.querySelector('.year');
+
 /**** `getRandomQuote` function
  ***/
 
 
-function getRandomQuote() {
+function getRandomQuote(e) {
+    e.preventDefault();
     let random = Math.floor(Math.random() * quotes.length);
     const randomQuote = quotes[random];
     // console.log(randomQuote);
 }
-getRandomQuote();
+
 /***
  * `printQuote` function
  ***/
+const quote = document.createElement('p');
+quote.className = 'quote';
+quote.innerText = 'Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.';
+
+// console.log(quote);
+
+const source = document.createElement('p');
+source.className = 'source';
+source.innerText = 'Patrick McKenzie';
+
+const citation = document.createElement('span');
+citation.className = 'citation';
+citation.innerText = 'Twitter';
+
+const year = document.createElement('span');
+year.className = 'year';
+year.innerText = '2016';
+
+source.append(citation, year);
+
+const quoteBox = document.querySelector('#quote-box');
+quoteBox.append(quote, source)
+console.log(quoteBox);
+
+
+
+
+
 
 /***
  * click event listener for the print quote button
  ***/
+
+quoteBtn.addEventListener('click', () => {
+    console.log('Clicked');
+
+});
