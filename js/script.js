@@ -86,8 +86,10 @@ function getRandomQuote() {
     let newQuote = '';
 
     newQuote += `
+    <i class="fas fa-quote-left"></i>
         <p class="quote">${randoms.quote}
         </p>
+        <hr>
         <p class="source">${randoms.source}
             <span class="citation">${randoms.citation}</span>
             <span class="year">${randoms.year}</span>
@@ -105,10 +107,20 @@ function getRandomQuote() {
 function printQuote() {
     return getRandomQuote();
 }
+/*** Get Random   Color**/
+const colors = ['#66b2b2', '#008080', '#4a8560', '#4eba72', '#69D2E7', '#50667d', '#16a085', '#4f6566', '#71c7ec', '#2c3e50'];
 
+function getRandomColors() {
+    const randomColors = colors[Math.floor(Math.random() * colors.length)];
+    console.log(randomColors);
+    document.body.style.backgroundColor = randomColors;
+    document.querySelector('.quote').style.color = randomColors;
+    // document.querySelector('.container').style.borderLeft = randomColors;
 
+}
 /***
  * click event listener for the print quote button
  ***/
 
 quoteBtn.addEventListener('click', printQuote);
+quoteBtn.addEventListener('click', getRandomColors);
