@@ -8,20 +8,20 @@ project 1 - Random Quote Generator
 const quotes = [{
         quote: 'Whoever is happy will make others happy too.',
         source: 'Anne Frank',
-        citation: '',
+        citation: 'Twitter',
         year: '2017'
     },
     {
         quote: 'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
         source: 'Benjamin Franklin',
-        citation: '',
+        citation: 'Facebook',
         year: '2015'
     },
 
     {
         quote: 'When you reach the end of your rope, tie a knot in it and hang on.',
         source: 'Franklin D. Roosevelt',
-        citation: '',
+        citation: 'Twitter',
         year: '2014'
     },
     {
@@ -33,97 +33,82 @@ const quotes = [{
     {
         quote: 'Do not go where the path may lead, go instead where there is no path and leave a trail. ',
         source: 'Ralph Waldo Emerson',
-        citation: '',
+        citation: 'Twitter',
         year: '2015'
     },
     {
         quote: 'The future belongs to those who believe in the beauty of their dreams.',
         source: 'Eleanor Roosevelt',
-        citation: '',
+        citation: 'Twitter',
         year: '2016'
     },
     {
         quote: 'Donot judge each day by the harvest you reap but by the seeds that you plant.',
         source: 'Robert Louis Stevenson',
-        citation: '',
+        citation: 'Twitter',
         year: '2012'
     },
     {
         quote: 'Always remember that you are absolutely unique. Just like everyone else.',
         source: 'Margaret Mead',
-        citation: '',
+        citation: 'Facebook',
         year: '2015'
     },
     {
         quote: 'When you reach the end of your rope, tie a knot in it and hang on.',
         source: 'Franklin D. Roosevelt',
-        citation: '',
+        citation: 'Facebook',
         year: '2011'
     },
     {
         quote: 'The future belongs to those who believe in the beauty of their dreams. ',
         source: 'Eleanor Roosevelt',
-        citation: '',
+        citation: 'Facebook',
         year: '2012'
     },
     {
         quote: 'Donot judge each day by the harvest you reap but by the seeds that you plant.',
         source: 'Robert Louis Stevenson',
-        citation: '',
+        citation: 'Facebook',
         year: '2015'
     },
 ];
 
 const quoteBtn = document.querySelector('#load-quote');
+const quoteBox = document.querySelector('#quote-box');
 
 /**** `getRandomQuote` function
  ***/
+function getRandomQuote() {
 
+    let randoms = quotes[Math.floor(Math.random() * quotes.length)];
+    console.log(randoms);
+    let newQuote = '';
 
-function getRandomQuote(e) {
-    e.preventDefault();
-    let random = Math.floor(Math.random() * quotes.length);
-    const randomQuote = quotes[random];
-    // console.log(randomQuote);
+    newQuote += `
+        <p class="quote">${randoms.quote}
+        </p>
+        <p class="source">${randoms.source}
+            <span class="citation">${randoms.citation}</span>
+            <span class="year">${randoms.year}</span>
+        </p>
+
+        `
+    quoteBox.innerHTML = newQuote;
 }
+
+
 
 /***
  * `printQuote` function
  ***/
-const quote = document.createElement('p');
-quote.className = 'quote';
-quote.innerText = 'Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.';
-
-// console.log(quote);
-
-const source = document.createElement('p');
-source.className = 'source';
-source.innerText = 'Patrick McKenzie';
-
-const citation = document.createElement('span');
-citation.className = 'citation';
-citation.innerText = 'Twitter';
-
-const year = document.createElement('span');
-year.className = 'year';
-year.innerText = '2016';
-
-source.append(citation, year);
-
-const quoteBox = document.querySelector('#quote-box');
-quoteBox.append(quote, source)
-console.log(quoteBox);
-
-
-
-
+function printQuote() {
+    return getRandomQuote();
+}
 
 
 /***
  * click event listener for the print quote button
  ***/
 
-quoteBtn.addEventListener('click', () => {
-    console.log('Clicked');
-
-});
+quoteBtn.addEventListener('click', printQuote);
