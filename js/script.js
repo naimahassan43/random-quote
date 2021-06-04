@@ -105,8 +105,11 @@ function getRandomQuote() {
  * `printQuote` function
  ***/
 function printQuote() {
-    return getRandomQuote();
+    getRandomQuote();
+    setInterval(getRandomQuote, 3000);
 }
+
+setTimeout(printQuote, 3000);
 /*** Get Random   Color**/
 const colors = ['#66b2b2', '#008080', '#4a8560', '#4eba72', '#69D2E7', '#50667d', '#16a085', '#4f6566', '#71c7ec', '#2c3e50'];
 
@@ -115,7 +118,6 @@ function getRandomColors() {
     console.log(randomColors);
     document.body.style.backgroundColor = randomColors;
     document.querySelector('.quote').style.color = randomColors;
-
 
 }
 /***
