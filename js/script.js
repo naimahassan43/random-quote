@@ -27,7 +27,7 @@ const quotes = [{
     {
         quote: 'Always remember that you are absolutely unique. Just like everyone else.',
         source: 'Margaret Mead',
-        citation: '',
+        citation: 'Twitter',
         year: '2012'
     },
     {
