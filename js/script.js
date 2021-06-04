@@ -3,13 +3,14 @@ project 1 - Random Quote Generator
 ******************************************/
 
 /***
- * `quotes` array
+ * `array
  ***/
 const quotes = [{
         quote: 'Whoever is happy will make others happy too.',
         source: 'Anne Frank',
         citation: 'Twitter',
-        year: '2017'
+        year: '2017',
+
     },
     {
         quote: 'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
@@ -73,7 +74,8 @@ const quotes = [{
         year: '2015'
     },
 ];
-
+const colors = ['#66b2b2', '#008080', '#4a8560', '#4eba72', '#69D2E7', '#50667d', '#16a085', '#4f6566', '#71c7ec', '#2c3e50'];
+//Selectors
 const quoteBtn = document.querySelector('#load-quote');
 const quoteBox = document.querySelector('#quote-box');
 
@@ -99,26 +101,23 @@ function getRandomQuote() {
     quoteBox.innerHTML = newQuote;
 }
 
-
-
 /***
  * `printQuote` function
  ***/
 function printQuote() {
     getRandomQuote();
-    setInterval(getRandomQuote, 3000);
+    getRandomColors();
+    setInterval(getRandomQuote, 10000);
+    setInterval(getRandomColors, 10000);
 }
+setTimeout(printQuote, 2000);
 
-setTimeout(printQuote, 3000);
 /*** Get Random   Color**/
-const colors = ['#66b2b2', '#008080', '#4a8560', '#4eba72', '#69D2E7', '#50667d', '#16a085', '#4f6566', '#71c7ec', '#2c3e50'];
-
 function getRandomColors() {
     const randomColors = colors[Math.floor(Math.random() * colors.length)];
     console.log(randomColors);
     document.body.style.backgroundColor = randomColors;
     document.querySelector('.quote').style.color = randomColors;
-
 }
 /***
  * click event listener for the print quote button
