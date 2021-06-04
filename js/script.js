@@ -115,7 +115,7 @@ function getRandomColors() {
     console.log(randomColors);
     document.body.style.backgroundColor = randomColors;
     document.querySelector('.quote').style.color = randomColors;
-    // document.querySelector('.container').style.borderLeft = randomColors;
+
 
 }
 /***
